@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
 interface AddTaskProps {
-    addTask: (text: string) => void; // callback to parent
+    addTask: (text: string) => void;
 }
 
 export function AddTask({ addTask }: AddTaskProps) {
@@ -16,10 +16,9 @@ export function AddTask({ addTask }: AddTaskProps) {
     const handleAddTask = () => {
         if (!inputValue.trim()) return;
 
-        // call parent to add task (handles DB + refresh)
         addTask(inputValue);
 
-        setInputValue(""); // clear input
+        setInputValue("");
     };
 
     return (

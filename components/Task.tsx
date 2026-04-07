@@ -19,6 +19,7 @@ export function Task({ id, text, checked, onToggle, onDelete }: TaskProps) {
                 <Checkbox
                     id={`task-checkbox-${id}`}
                     name={`task-checkbox-${id}`}
+                    checked={checked}
                     className="rounded-full border-2 border-primary text-[#D67447] data-[state=checked]:bg-[#D67447] data-[state=checked]:border-[#D67447] focus-visible:ring-[#D67447]/50"
                     onCheckedChange={onToggle}
                 />

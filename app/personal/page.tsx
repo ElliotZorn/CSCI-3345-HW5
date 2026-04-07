@@ -27,7 +27,7 @@ function Personal() {
             method: 'POST',
             body: JSON.stringify({ text }),
         });
-        fetchTasks(); // refresh list
+        fetchTasks();
     };
 
     const toggleTask = async (id: number) => {
