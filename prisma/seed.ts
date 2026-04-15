@@ -1,12 +1,35 @@
-import { PrismaClient, Prisma } from "../app/generated/prisma/client";
-import { PrismaPg } from "@prisma/adapter-pg";
-import "dotenv/config";
+import { prisma } from '@/lib/prisma';
 
-const adapter = new PrismaPg({
-    connectionString: process.env.DATABASE_URL,
-});
+async function main() {
+    console.log("Seeding database...")
 
-const prisma = new PrismaClient({
-    adapter,
-});
+    await prisma.task.deleteMany()
 
+    await prisma.task.createMany({
+        data: [
+            {
+                text: "Do stuff",
+                checked: false,
+            },
+            {
+                text: "Do some more stuff",
+                checked: true,
+            },
+            {
+                text: "Even more stuff!!!",
+                checked: false,
+            }
+        ],
+    })
+
+    console.log("Database seeded successfully!")
+}
+
+main()
+    .catch((e) => {
+        console.error("Seeding error:", e)
+        process.exit(1)
+    })
+    .finally(async () => {
+        await prisma.$disconnect()
+    })
