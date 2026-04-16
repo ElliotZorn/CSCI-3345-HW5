@@ -2,10 +2,10 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, Seed the DB:
+Firs, created .env file and include:
 
-```bash
-npx prisma db seed
+```code
+DATABASE_URL="file:./dev.db"
 ```
 
 Second, run the dev server:
