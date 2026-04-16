@@ -2,13 +2,17 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-Firs, created .env file and include:
+First generate:
+```code
+npx prisma generate
+```
+Second, created .env file and include:
 
 ```code
 DATABASE_URL="file:./dev.db"
 ```
 
-Second, run the dev server:
+Third, run the dev server:
 ```bash
 npm run dev
 ```
